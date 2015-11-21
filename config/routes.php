@@ -41,18 +41,20 @@ use Cake\Routing\Router;
  */
 Router::defaultRouteClass('DashedRoute');
 
+Router::extensions(['json']);
+
 Router::scope('/', function ($routes) {
     /**
      * Here, we are connecting '/' (base path) to a controller called 'Pages',
      * its action called 'display', and we pass a param to select the view file
      * to use (in this case, src/Template/Pages/home.ctp)...
      */
-    $routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
+    //$routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
 
     /**
      * ...and connect the rest of 'Pages' controller's URLs.
      */
-    $routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
+    //$routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
 
     /**
      * Connect catchall routes for all controllers.
@@ -70,6 +72,16 @@ Router::scope('/', function ($routes) {
      * You can remove these routes once you've connected the
      * routes you want in your application.
      */
+    $routes->resources('Accesses');
+    $routes->resources('Categories');
+    $routes->resources('Groups');
+    $routes->resources('Markers');
+    $routes->resources('Markerviews');
+    $routes->resources('Places');
+    $routes->resources('Respondents');
+    $routes->resources('Users');
+    $routes->resources('Twits');
+
     $routes->fallbacks('DashedRoute');
 });
 

@@ -1,0 +1,6 @@
+#!/bin/sh
+if [ "upload" = $1 ];then
+ncftpput -m -u aan@awaspungli.com -p A1ngpisan -P 21 ftp.awaspungli.com /home/wspngcom/public_html/apimimin/$3 `dirname $0`/$3
+elif [ "download" = $1 ];then
+ncftpget -u aan@awaspungli.com -p A1ngpisan -P 21 ftp.awaspungli.com `dirname $0`/$2 /home/wspngcom/public_html/apimimin/$2/$3
+fi
