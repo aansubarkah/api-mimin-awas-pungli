@@ -244,7 +244,7 @@ class TwitsController extends AppController
 					//first get respondent_id
 					$respondent_id = $this->findToSaveRespondent($data['user']['id'], $data['user']['name'], $data['user']['screen_name']);
 
-					$info = trim(str_replace('@dimanamacetid', '', $data['text']));
+					$info = trim(str_replace('@awaspungli', '', $data['text']));
 					$created_at = date("Y-m-d H:i:s", strtotime($data['created_at']));
 					Type::build('datetime')->useLocaleParser();//cakephp need this to save datetime field
 					$dataToSave = [
